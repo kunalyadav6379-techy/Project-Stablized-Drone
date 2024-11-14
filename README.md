@@ -2,23 +2,6 @@
 
 [![Build Status](https://travis-ci.org/psas/av3-fc.png)](https://travis-ci.org/psas/av3-fc)
 
-[Portland State Aerospace Society](http://psas.pdx.edu/) is an open source
-"space program" in Portland Oregon.  We build and fly state-of-the-art
-rocket avionics systems. We've been testing ways to fly code on small-ish
-rockets for over 15 years.
-
-This repo contains our current primary flight computer (an Intel Atom processor
-at the heart of a full stack of sensors, batteries, radios, and other electronics. This
-all fits in our 5.5 inch diameter, 12 foot tall, high power rocket that flies
-over straight up over 4 kilometers.
-
-We've been refining the code to fly a roll control experiment in July 2014.
-
- - [More information about upcoming launch](https://github.com/psas/Launch-11)
- - [Watch a video from past launches](https://www.youtube.com/user/psasrockets)
- - [Follow us on twitter @pdxaerospace](https://twitter.com/pdxaerospace)
-
-
 # Documentation
 
 The flight code is written in C, and features a generated `main` function and a
