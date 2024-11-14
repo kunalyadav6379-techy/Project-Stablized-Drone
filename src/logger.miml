@@ -1,0 +1,33 @@
+%YAML 1.2
+---
+include: logger.h
+object: src/logger.o
+init: logger_init();
+final: logger_final();
+
+# Functions that handle outgoing data
+senders:
+
+# Functions that handle incoming data
+receivers:
+  log_write_disk_only:
+  - [ID, const char*]
+  - [timestamp, uint8_t*]
+  - [data_length, uint16_t]
+  - [data, void*]
+
+  log_write:
+  - [ID, const char*]
+  - [timestamp, uint8_t*]
+  - [data_length, uint16_t]
+  - [data, void*]
+
+  log_receive_arm:
+  - [code, const char*]
+
+  log_receive_rc:
+  - [data, ROLLMessage*]
+
+  log_receive_rnh_version:
+  - [ARG1, uint8_t*]
+  - [ARG2, unsigned int]

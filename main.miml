@@ -1,0 +1,78 @@
+sources:
+  - [TIME, utils_time.miml]     # Time utilities
+  - [SOCK, utils_sockets.miml]  # Socket utilities
+  - [ADDR, net_addrs.miml]      # RocketNet addresses
+  - [FILTER, filter.miml]       # Log filtering
+  - [LOG, logger.miml]          # Logger code Module
+  - [GPS, gps.miml]             # GPS Sensor
+  - [ARM, arm.miml]             # Arm Code Module
+  - [RC, rollcontrol.miml]      # Roll Control Code Module
+  - [RS, rollservo.miml]        # Roll Servo Control Interface
+  - [STATE, state.miml]         # State Estimation Module
+  - [ETH, ethmux.miml]          # Central Ethernet receiver
+  - [RNH, rnh.miml]             # RocketNet Hub
+
+messages:
+  ETH.demuxed_ADIS:
+    - LOG.log_write
+    - ARM.arm_receive_imu
+    - STATE.state_receive_imu
+
+  ETH.demuxed_ARM:
+    - ARM.arm_raw_in
+
+  ETH.demuxed_MPU:
+    - LOG.log_write
+
+  ETH.demuxed_MPL:
+    - LOG.log_write
+
+  ETH.demuxed_BMP:
+    - LOG.log_write
+
+  ETH.demuxed_RC:
+    - RC.rc_raw_testrc
+
+  ETH.demuxed_RNH:
+    - LOG.log_write
+
+  ETH.demuxed_RNHUMB:
+    - RC.rc_raw_umb
+    - LOG.log_write
+
+  ETH.demuxed_FCFH:
+    - LOG.log_write
+
+  ETH.demuxed_JGPS:
+    - FILTER.filter_receive
+
+  ETH.demuxed_COTS:
+    - GPS.cots_raw_in
+
+  ETH.sequenced_error:
+    - LOG.log_write
+
+  STATE.state_send_message:
+    - RC.rc_receive_state
+
+  GPS.gps_data_out:
+    - ARM.arm_receive_gps
+    - FILTER.filter_receive
+
+  FILTER.filter_to_ground:
+    - LOG.log_write
+
+  FILTER.filter_to_disk:
+    - LOG.log_write_disk_only
+
+  ARM.arm_send_signal:
+    - RC.rc_receive_arm
+    - LOG.log_receive_arm
+
+  RC.rc_send_servo:
+    - RS.rs_receive_adj
+    - LOG.log_receive_rc
+
+  RNH.rnh_version_out:
+    - LOG.log_receive_rnh_version
+

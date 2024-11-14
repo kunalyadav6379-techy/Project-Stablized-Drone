@@ -1,0 +1,28 @@
+%YAML 1.2
+---
+include: arm.h
+object: src/arm.o
+init: arm_init();
+final: arm_final();
+
+senders:
+  arm_send_signal:
+  - [code, const char*]
+  
+receivers:
+  arm_raw_in:
+  - [buffer, unsigned char*]
+  - [len, unsigned int]
+  - [timestamp, unsigned char*]
+  
+  arm_receive_imu:
+  - [ID, const char*]
+  - [timestamp, uint8_t*]
+  - [data_length, uint16_t]
+  - [data, void*]
+  
+  arm_receive_gps:
+  - [ID, const char*]
+  - [timestamp, uint8_t*]
+  - [data_length, uint16_t]
+  - [data, void*]

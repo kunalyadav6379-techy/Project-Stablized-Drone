@@ -1,0 +1,26 @@
+%YAML 1.2
+---
+include: state.h
+object: src/state.o
+init: state_init();
+
+senders:
+
+  state_send_message:
+  - [ID, const char*]
+  - [timestamp, uint8_t*]
+  - [data_length, uint16_t]
+  - [data, void*]
+
+receivers:
+  state_receive_imu:
+  - [ID, const char*]
+  - [timestamp, uint8_t*]
+  - [data_length, uint16_t]
+  - [data, void*]
+
+  state_raw_ld_in:
+  - [code, unsigned char*]
+  - [len, unsigned int]
+  - [timestamp, unsigned char*]
+

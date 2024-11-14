@@ -1,0 +1,79 @@
+%YAML 1.2
+---
+include: ethmux.h
+object: src/ethmux.o
+init: ethmux_init();
+final: ethmux_final();
+
+senders:
+  demuxed_ARM:
+  - [data, unsigned char*]
+  - [len, unsigned int]
+  - [timestamp, unsigned char*]
+  
+  demuxed_ADIS:
+  - [ID, const char*]
+  - [timestamp, uint8_t*]
+  - [data_length, uint16_t]
+  - [data, void*]
+  
+  demuxed_MPU:
+  - [ID, const char*]
+  - [timestamp, uint8_t*]
+  - [data_length, uint16_t]
+  - [data, void*]
+  
+  demuxed_MPL:
+  - [ID, const char*]
+  - [timestamp, uint8_t*]
+  - [data_length, uint16_t]
+  - [data, void*]
+
+  demuxed_BMP:
+  - [ID, const char*]
+  - [timestamp, uint8_t*]
+  - [data_length, uint16_t]
+  - [data, void*]
+ 
+  demuxed_RC:
+  - [data, unsigned char*]
+  - [len, unsigned int]
+  - [timestamp, unsigned char*]
+
+  demuxed_RNH:
+  - [ID, const char*]
+  - [timestamp, uint8_t*]
+  - [data_length, uint16_t]
+  - [data, void*]
+
+  demuxed_RNHUMB:
+  - [ID, const char*]
+  - [timestamp, uint8_t*]
+  - [data_length, uint16_t]
+  - [data, void*]
+
+  demuxed_FCFH:
+  - [ID, const char*]
+  - [timestamp, uint8_t*]
+  - [data_length, uint16_t]
+  - [data, void*]
+
+  demuxed_JGPS:
+  - [ID, const char*]
+  - [timestamp, uint8_t*]
+  - [data_length, uint16_t]
+  - [data, void*]
+
+  demuxed_COTS:
+  - [ID, const char*]
+  - [timestamp, uint8_t*]
+  - [data_length, uint16_t]
+  - [data, void*]
+
+  sequenced_error:
+  - [ID, const char*]
+  - [timestamp, uint8_t*]
+  - [data_length, uint16_t]
+  - [data, void*]
+
+receivers:
