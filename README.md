@@ -1,25 +1,3 @@
-# PSAS Flight Computer
-
-[![Build Status](https://travis-ci.org/psas/av3-fc.png)](https://travis-ci.org/psas/av3-fc)
-
-# Documentation
-
-The flight code is written in C, and features a generated `main` function and a
-callback-based event loop. The [event loop code generator was written by a senior
-CS student group in 2013](https://github.com/psas/elderberry).
-
-This abstraction lets us write small pieces of behavior with very little
-boilerplate. The goal is to be able to hand out well defined projects such as
-"write the parser for the GPS messages" to members without having to expect them
-to maintain the complicated interconnections to the rest of the system.
-
- - [PSAS Flight computer documentation (WIP)](http://psas-flight-computer.readthedocs.org/).
-
-This idea is very similar system to NASA's
-'[Core Flight Executive](http://code.nasa.gov/project/core-flight-executive-cfe/)'
-system for spacecraft software abstraction.
-
-
 # Building the Flight Computer
 
 ## Requirements 
